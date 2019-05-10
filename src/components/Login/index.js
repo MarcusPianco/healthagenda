@@ -1,15 +1,41 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Alert } from 'reactstrap';
+import TextInput from '../Layout/TextInput';
 
 class Login extends Component {
-  state = {
-    userName: '',
-    password: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      userName: '',
+      password: '',
+    };
+  }
 
   onChange = (e) => {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value,
+    });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+
+    const { userName, password } = this.state;
+
+    const user = {
+      userName,
+      password,
+    };
+
+    const { users } = this.props;
+
+    users.forEach((element) => {
+      if (element.userName === user.userName && element.password === user.password) {
+        return this.props.history.push('appointments');
+      }
+      return <Alert>Error in Login</Alert>;
     });
   };
 
@@ -22,20 +48,16 @@ class Login extends Component {
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group text-left" style={{ fontFamily: 'courier' }}>
-                <label htmlFor="name">Enter with your user:</label>
-                <input
+                <TextInput
+                  label="Enter with your user:"
                   name="userName"
-                  placeholder="your user..."
-                  className="form-control form-control-lg"
                   type="text"
                   value={userName}
                   onChange={this.onChange}
                 />
-                <label htmlFor="name">Enter with your password:</label>
-                <input
+                <TextInput
+                  label="Enter with your password:"
                   name="password"
-                  placeholder="your pasword..."
-                  className="form-control form-control-lg"
                   type="password"
                   value={password}
                   onChange={this.onChange}
@@ -49,4 +71,12 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+
+const mapStateToProps = state => ({
+  users: state.users,
+});
+
+export default connect(
+  mapStateToProps,
+  null,
+)(Login);

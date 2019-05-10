@@ -2,6 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
+import { connect } from 'react-redux';
 
 const Header = (props) => {
   const { branding } = props;
@@ -31,20 +32,24 @@ const Header = (props) => {
                 Signup
               </Link>
             </li>
-            <li className="nav-item navbar-brand">
-              <Link to="/appointments" className="nav-link">
-                {' '}
-                <i className="fas fa-heartbeat" />
-                Appointments
-              </Link>
-            </li>
-            <li className="nav-item navbar-brand">
-              <Link to="/home" className="nav-link">
-                {' '}
-                <i className="fas fa-sign-out-alt" />
-                Logout
-              </Link>
-            </li>
+            {props.session.isLogin ? (
+              <React.Fragment>
+                <li className="nav-item navbar-brand">
+                  <Link to="/appointments" className="nav-link">
+                    {' '}
+                    <i className="fas fa-heartbeat" />
+                    Appointments
+                  </Link>
+                </li>
+                <li className="nav-item navbar-brand">
+                  <Link to="/home" className="nav-link">
+                    {' '}
+                    <i className="fas fa-sign-out-alt" />
+                    Logout
+                  </Link>
+                </li>
+              </React.Fragment>
+            ) : null}
           </ul>
         </React.Fragment>
       </div>
@@ -56,4 +61,11 @@ Header.propTypes = {
   branding: propTypes.string.isRequired,
 };
 
-export default Header;
+const mapStateToProps = state => ({
+  session: state.session,
+});
+
+export default connect(
+  mapStateToProps,
+  null,
+)(Header);
