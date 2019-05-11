@@ -9,6 +9,15 @@ Clone this repository  in your local or virtual machine and run the script bello
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+## Or using Docker 
+
+### In the Terminal 
+### docker build -t h/agenda . && docker run --rm -d -p 3000:3000/tcp h/agenda:latest
+
+### or JUST:
+### run: docker-compose up -d
+
+
 ## Some Dependencies used:
 
         "babel-jest": "24.7.1",
