@@ -68,7 +68,7 @@ class AddAppointments extends Component {
                 </FormGroup>
 
                 <Label for="date" key="dateAppointment">
-                  <strong>Date:</strong>
+                  <strong>Remark:</strong>
                 </Label>
                 <Input
                   type="text"
