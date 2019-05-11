@@ -4,3 +4,9 @@ export function addAppointment(appointment) {
     payload: appointment,
   };
 }
+
+export function fetchAppointmnts() {
+  return {
+    type: 'FETCH_APPOINTMENTS',
+  };
+}

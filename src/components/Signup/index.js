@@ -63,7 +63,8 @@ class Signup extends Component {
     addUser(newUser);
 
     const { history } = this.props;
-    history.push('/login');
+    const { push } = history;
+    push('/login');
   };
 
   render() {
@@ -157,7 +158,6 @@ const mapDispatchToProps = dispatch => bindActionCreators(usersActions, dispatch
 
 Signup.propTypes = {
   addUser: PropTypes.func.isRequired,
-  history: PropTypes.object,
 };
 
 export default connect(

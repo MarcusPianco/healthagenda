@@ -1,7 +1,7 @@
-export default function session(state = { isLogin: false, userName: '' }, action) {
+export default function session(state = { isLogin: false, user: {} }, action) {
   switch (action.type) {
     case 'UPDATE_SESSION':
-      return { isLogin: true, userName: action.payload.name };
+      return { isLogin: !state.isLogin, user: action.payload };
     default:
       break;
   }

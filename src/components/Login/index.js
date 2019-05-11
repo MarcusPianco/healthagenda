@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Alert } from 'reactstrap';
+import { bindActionCreators } from 'redux';
 import TextInput from '../Layout/TextInput';
+import * as sessionActions from '../../actions/session';
 
 class Login extends Component {
   constructor(props) {
@@ -31,8 +33,11 @@ class Login extends Component {
 
     const { users } = this.props;
 
+    const { updateSession } = this.props;
+
     users.forEach((element) => {
       if (element.userName === user.userName && element.password === user.password) {
+        updateSession(user);
         return this.props.history.push('appointments');
       }
       return <Alert>Error in Login</Alert>;
@@ -74,9 +79,11 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
   users: state.users,
+  session: state.session,
 });
 
+const mapDispatchToProps = dispatch => bindActionCreators(sessionActions, dispatch);
 export default connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
 )(Login);
