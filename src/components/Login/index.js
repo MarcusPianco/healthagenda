@@ -1,15 +1,46 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Alert } from 'reactstrap';
+import { bindActionCreators } from 'redux';
+import TextInput from '../Layout/TextInput';
+import * as sessionActions from '../../actions/session';
 
-export default class Login extends Component {
-  state = {
-    userName: '',
-    password: '',
-  };
+class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userName: '',
+      password: '',
+    };
+  }
 
   onChange = (e) => {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value,
+    });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+
+    const { userName, password } = this.state;
+
+    const user = {
+      userName,
+      password,
+    };
+
+    const { users } = this.props;
+
+    const { updateSession } = this.props;
+
+    users.forEach((element) => {
+      if (element.userName === user.userName && element.password === user.password) {
+        updateSession(user);
+        return this.props.history.push('appointments');
+      }
+      return <Alert>Error in Login</Alert>;
     });
   };
 
@@ -22,20 +53,16 @@ export default class Login extends Component {
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group text-left" style={{ fontFamily: 'courier' }}>
-                <label htmlFor="name">Enter with your user:</label>
-                <input
+                <TextInput
+                  label="Enter with your user:"
                   name="userName"
-                  placeholder="your user..."
-                  className="form-control form-control-lg"
                   type="text"
                   value={userName}
                   onChange={this.onChange}
                 />
-                <label htmlFor="name">Enter with your password:</label>
-                <input
+                <TextInput
+                  label="Enter with your password:"
                   name="password"
-                  placeholder="your pasword..."
-                  className="form-control form-control-lg"
                   type="password"
                   value={password}
                   onChange={this.onChange}
@@ -49,3 +76,14 @@ export default class Login extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  users: state.users,
+  session: state.session,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(sessionActions, dispatch);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Login);
