@@ -37,8 +37,8 @@ class Login extends Component {
 
     users.forEach((element) => {
       if (element.userName === user.userName && element.password === user.password) {
-        updateSession(user);
-        return this.props.history.push('appointments');
+        updateSession(element);
+        return this.props.history.push('/appointments');
       }
       return <Alert>Error in Login</Alert>;
     });

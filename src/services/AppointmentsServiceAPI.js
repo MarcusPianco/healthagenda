@@ -3,25 +3,25 @@ export function getListAppointments() {
     {
       id: 1,
       remark: 'very Pain',
-      name: 'Lucas',
+      patientName: 'Lucas',
       date: '21/01/2019',
     },
     {
       id: 2,
       remark: 'Very tired',
-      name: 'Jean',
+      patientName: 'Jean',
       date: '22/02/2019',
     },
     {
       id: 3,
       remark: 'Ohh my ZSH!!!',
-      name: 'Just',
+      patientName: 'Just',
       date: '29/02/2019',
     },
     {
       id: 4,
       remark: 'Thank u guys',
-      name: 'Marcus Pianco',
+      patientName: 'Marcus Pianco',
       date: '10/05/2019',
     },
   ];
