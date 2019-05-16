@@ -4,39 +4,25 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actionsAppointments from '../../actions/appointments';
-import { getListAppointments } from '../../services/AppointmentsServiceAPI';
 
 class Appoointments extends React.Component {
-  state = {
-    appointments: [],
-  };
-
-  async componentDidMount() {
-    const arrTemp = await this.getListAppoints();
-    this.setState({
-      appointments: arrTemp,
-    });
-  }
-
-  getListAppoints = async () => {
-    const arrAppintments = await getListAppointments();
-    return arrAppintments;
-  };
-
   render() {
+    console.log(this.props.appointments);
     return (
       <React.Fragment>
         <div className="container" style={{ paddingTop: '10px', paddingBottom: '100px' }}>
-          <Link to="/add-appointments">
-            <button
-              type="button"
-              className="btn btn-primary btn-circle btn-xl"
-              onClick={this.onClick}
-              style={{ float: 'right' }}
-            >
-              <i className="fas fa-plus-circle" />
-            </button>
-          </Link>
+          {this.props.session.user.kindUser === 'patient' && (
+            <Link to="/add-appointments">
+              <button
+                type="button"
+                className="btn btn-primary btn-circle btn-xl"
+                onClick={this.onClick}
+                style={{ float: 'right' }}
+              >
+                <i className="fas fa-plus-circle" />
+              </button>
+            </Link>
+          )}
         </div>
         <div className="container">
           <div className="card">
@@ -59,9 +45,9 @@ class Appoointments extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.appointments.map(element => (
+                {this.props.appointments.map(element => (
                   <tr key={element.id}>
-                    <td>{element.name}</td>
+                    <td>{element.patientName}</td>
                     <td>{element.remark}</td>
                     <td>{element.date}</td>
                   </tr>
