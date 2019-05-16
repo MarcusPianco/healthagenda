@@ -54,7 +54,6 @@ class AddAppointments extends Component {
   };
 
   render() {
-
     const { date, remark } = this.state;
     return (
       <div className="container col-8">
