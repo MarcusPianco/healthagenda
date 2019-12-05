@@ -4,7 +4,7 @@ import { Input, FormGroup, Label } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
-import * as actionsAppointments from '../../actions/appointments';
+import * as actionsAppointments from '../../store/actions/appointments';
 
 class AddAppointments extends Component {
   state = {

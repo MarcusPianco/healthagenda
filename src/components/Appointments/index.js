@@ -3,7 +3,7 @@ import './appintments.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import * as actionsAppointments from '../../actions/appointments';
+import * as actionsAppointments from '../../store/actions/appointments';
 
 class Appoointments extends React.Component {
   render() {

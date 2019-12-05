@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actionsSession from '../../../actions/session';
+import * as actionsSession from '../../../store/actions/session';
 
 class Header extends React.Component {
   state = {};

@@ -1,4 +1,4 @@
-import { getListAppointments } from '../services/AppointmentsServiceAPI';
+import { getListAppointments } from '../../services/AppointmentsServiceAPI';
 
 export default function apointments(state = [...getListAppointments()], action) {
   switch (action.type) {

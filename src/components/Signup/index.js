@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FormGroup, Label, Input } from 'reactstrap';
-import * as usersActions from '../../actions/users';
+import * as usersActions from '../../store/actions/users';
 import TextInput from '../Layout/TextInput';
 
 class Signup extends Component {

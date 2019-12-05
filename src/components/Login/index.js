@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Alert } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import TextInput from '../Layout/TextInput';
-import * as sessionActions from '../../actions/session';
+import * as sessionActions from '../../store/actions/session';
 
 class Login extends Component {
   constructor(props) {
