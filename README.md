@@ -1,60 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# HealthAgenda
 
-## To Run
+Project using in a developer selection to reactJS the goal was to show the ability to develop simple components in reactJS and use redux.
 
-Clone this repository  in your local or virtual machine and run the script bellow
+## Technologies
 
-### `yarn start`
+-   1. ReactJS
+-   2. Redux
+-   3. NodeJS
+-   4. Docker
+
+### To Run
+
+Clone this repository in your local or virtual machine and run the script bellow
+
+`yarn start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Or using Docker 
+### Or using Docker
 
-### In the Terminal 
-### docker build -t h/agenda . && docker run --rm -d -p 3000:3000/tcp h/agenda:latest
+In the Terminal: `docker build -t h/agenda . && docker run --rm -d -p 3000:3000/tcp h/agenda:latest`
 
-### or JUST:
-### run: docker-compose up -d
+Using docker-compose: `run: docker-compose up -d`
 
+## Components
 
-## Some Dependencies used:
+### Home Component
 
-        "babel-jest": "24.7.1",
-        "bcryptjs": "^2.4.3",
-        "bootstrap": "^4.3.1",
-        "prop-types": "^15.7.2",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
-        "react-redux": "^7.0.3",
-        "react-router-dom": "^5.0.0",
-        "react-scripts": "3.0.0",
-        "reactstrap": "^8.0.0",
-        "redux": "^4.0.1",
-        "redux-persist": "^5.10.0"
-        
-## Dev dependencies used during the production
-        "eslint": "^5.16.0",
-        "eslint-config-airbnb": "^17.1.0",
-        "eslint-plugin-import": "^2.17.2",
-        "eslint-plugin-jsx-a11y": "^6.2.1",
-        "eslint-plugin-react": "^7.13.0"
-        
-        
-## Problems and bugs
+![alt](screenshots/home.png)
 
-The software still in development, some bugs or others problems could be reported via issues
+### Signin Component
 
-## Tests
-The process of integration test not exist yeat.
+![alt](screenshots/signin.png)
 
+### Signup Component
 
+![alt](screenshots/signup.png)
 
+### Signin Component
+
+![alt](screenshots/appointments.png)
+
+### Not Found Page
+
+![alt](screenshots/notfound.png)
 
 ## Things to do
 
-### Put persistence data in the project
-### Fix bugs related with redux
-### Put some strategy to coverage side-efects
-### Refactoring structure to duck patter in redux folders organization
-## Conect the application with some api or service
+-   1. Refactor redux structure(duck pattern)
+-   2. Change style base
+-   3. Increase documentation
+-   4. Connect with rest api (https://github.com/MarcusPianco/health-agenda-api)
+-   5. Refactor JSX components
+-   6. Change to styled components

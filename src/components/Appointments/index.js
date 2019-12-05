@@ -7,7 +7,6 @@ import * as actionsAppointments from '../../actions/appointments';
 
 class Appoointments extends React.Component {
   render() {
-    console.log(this.props.appointments);
     return (
       <React.Fragment>
         <div className="container" style={{ paddingTop: '10px', paddingBottom: '100px' }}>
