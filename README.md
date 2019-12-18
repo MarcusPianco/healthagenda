@@ -1,6 +1,5 @@
-# HealthAgenda
-
-Project using in a developer selection to reactJS the goal was to show the ability to develop simple components in reactJS and use redux.
+# Health Agenda
+Project used in a developers selection to react js. The goal was show the ability to develop simple components in react JS and use redux.
 
 ## Technologies
 
